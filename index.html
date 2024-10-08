@@ -3,61 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kobot Labs  - Robotic Automation Experts</title>
+    <title>Kobot Labs - Robotic Automation Experts</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
         }
         header {
             background-image: url('images/image3.jpg');
-             background-size: contain; /* Ensure the image covers the entire header */
-        background-position: center; /* Center the image */
-        background-repeat: no-repeat; /* Prevent the image from repeating */
-        height: 300px; /* Set a height for the header */
-        display: flex; /* Use flexbox to center the title */
-        justify-content: center; /* Center horizontally */
-        align-items: center; /* Center vertically */
-        color: white; /* Text color */
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        header p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
         nav {
-            background-color: #444;
-            color: #fff;
-            padding: 0.5rem;
+            background-color: #333;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         nav ul {
             list-style-type: none;
             padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
         }
         nav ul li {
-            display: inline;
-            margin-right: 10px;
+            margin: 0 15px;
         }
         nav ul li a {
             color: #fff;
             text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #ffd700;
         }
         .container {
             width: 80%;
             margin: auto;
             overflow: hidden;
-            padding: 20px;
+            padding: 40px 0;
+        }
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
         }
         .service-item {
-            margin-bottom: 20px;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .service-item:hover {
+            transform: translateY(-5px);
         }
         .service-item img {
-            max-width: 100%;
-            height: auto;
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .service-content {
+            padding: 20px;
+        }
+        .service-item h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        #about {
+            background-image: url('images/image2.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        #about .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 8px;
+        }
+        #contact {
+            background-color: #fff;
+            padding: 60px 0;
+        }
+        #contact ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        #contact ul li {
+            margin-bottom: 10px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Kobot Labs </h1>
+        <h1>Kobot Labs</h1>
         <p>Revolutionizing Industries with Robotics and AI Vision</p>
     </header>
 
@@ -70,56 +143,64 @@
         </ul>
     </nav>
 
-    <div class="container">
-        <section id="home">
-            <h2>Welcome to Kobot Labs </h2>
-            <p>We specialize in cutting-edge robotics and AI vision solutions for the packaging industry, optimizing all automation and secondary packaging processes, machine tending, and pick-and-place operations.</p>
-        </section>
+    <div class="container" id="home">
+        <h2>Welcome to Kobot Labs</h2>
+        <p>We specialize in cutting-edge robotics and AI vision solutions for the packaging industry, optimizing all automation and secondary packaging processes, machine tending, and pick-and-place operations.</p>
+    </div>
 
-        <section id="services">
-            <h2>Our Services</h2>
+    <div class="container" id="services">
+        <h2>Our Services</h2>
+        <div class="service-grid">
             <div class="service-item">
-                <h3>Automation Services</h3>
-                
-                <p>Our AI-powered robots excel in precise and efficient taks ensuring product integrity and optimal presentation.</p>
+                <img src="images/image1.jpg" alt="Automation Services">
+                <div class="service-content">
+                    <h3>Automation Services</h3>
+                    <p>Our AI-powered robots excel in precise and efficient tasks ensuring product integrity and optimal presentation.</p>
+                </div>
             </div>
             <div class="service-item">
-                <h3>Secondary Packaging</h3>
-                
-                <p>Streamline your secondary packaging processes with our advanced robotics systems, designed for speed and accuracy.</p>
+                <img src="images/imagemain.jpeg" alt="Secondary Packaging">
+                <div class="service-content">
+                    <h3>Secondary Packaging</h3>
+                    <p>Streamline your secondary packaging processes with our advanced robotics systems, designed for speed and accuracy.</p>
+                </div>
             </div>
             <div class="service-item">
-                <h3>Machine Tending</h3>
-               
-                <p>Increase productivity and reduce downtime with our intelligent machine tending solutions, capable of managing multiple machines simultaneously.</p>
+                <img src="images/image3.jpg" alt="Machine Tending">
+                <div class="service-content">
+                    <h3>Machine Tending</h3>
+                    <p>Increase productivity and reduce downtime with our intelligent machine tending solutions, capable of managing multiple machines simultaneously.</p>
+                </div>
             </div>
             <div class="service-item">
-                <h3>Pick and Place</h3>
-                <img src="/images/pick.jpg" alt="Pick and Place Robot">
-                <p>Our high-speed pick and place robots, guided by advanced AI vision systems, ensure precise object handling and placement.</p>
+                <img src="images/pick.jpg" alt="Pick and Place Robot">
+                <div class="service-content">
+                    <h3>Pick and Place</h3>
+                    <p>Our high-speed pick and place robots, guided by advanced AI vision systems, ensure precise object handling and placement.</p>
+                </div>
             </div>
-        </section>
+        </div>
+    </div>
 
-        <section id="about">
+    <section id="about">
+        <div class="container">
             <h2>About Us</h2>
-            <p>Kobot Labs  is at the forefront of packaging automation technology. Our team of experts combines years of experience in robotics, artificial intelligence, and packaging industry knowledge to deliver cutting-edge solutions that drive efficiency and innovation.</p>
-        </section>
+            <p>Kobot Labs is at the forefront of packaging automation technology. Our team of experts combines years of experience in robotics, artificial intelligence, and packaging industry knowledge to deliver cutting-edge solutions that drive efficiency and innovation.</p>
+        </div>
+    </section>
 
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p>Ready to revolutionize your packaging processes? Get in touch with us today!</p>
-            <ul>
-                <li>Email: kobotlabs@gmail.com</li>
-                <li>Phone: +91 8547314780</li>
-                <li>Address: Chottubhagath Building, Pezhakkappilly P O, Muvattupuzha - 686673</li>
-            </ul>
-        </section>
+    <div class="container" id="contact">
+        <h2>Contact Us</h2>
+        <p>Ready to revolutionize your packaging processes? Get in touch with us today!</p>
+        <ul>
+            <li>Email: kobotlabs@gmail.com</li>
+            <li>Phone: +91 8547314780</li>
+            <li>Address: Chottubhagath Building, Pezhakkappilly P O, Muvattupuzha - 686673</li>
+        </ul>
     </div>
 
     <footer>
-        <p>&copy; 2024 Kobot Labs . All rights reserved.</p>
+        <p>&copy; 2024 Kobot Labs. All rights reserved.</p>
     </footer>
 </body>
 </html>
-
-
