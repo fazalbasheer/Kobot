@@ -279,17 +279,89 @@
         <h2>Our Services</h2>
         <div class="service-grid">
             <div class="service-item">
-                <a href="cobot-article.html" target="_blank">
-                    <img src="images/image1.jpg" alt="Automation Services">
-                    <div class="service-content">
-                        <h3>Automation Services</h3>
-                        <p>Our AI-powered robots excel in precise and efficient tasks ensuring product integrity and optimal presentation.</p>
-                    </div>
-                </a>
+                <img src="images/image1.jpg" alt="Automation Services">
+                <div class="service-content">
+                    <h3>Automation Services</h3>
+                    <p>Our AI-powered robots excel in precise and efficient tasks ensuring product integrity and optimal presentation.</p>
+                </div>
             </div>
             <div class="service-item">
-                <a href="cobot-article.html" target="_blank">
-                    <img src="images/imagemain.jpeg" alt="Secondary Packaging">
-                    <div class="service-content">
-                        <h3>Secondary Packaging</h3>
-                        <p>Streamline your secondary packaging processes with our advanced robotics
+                <img src="images/imagemain.jpeg" alt="Secondary Packaging">
+                <div class="service-content">
+                    <h3>Secondary Packaging</h3>
+                    <p>Streamline your secondary packaging processes with our advanced robotics systems, designed for speed and accuracy.</p>
+                </div>
+            </div>
+            <div class="service-item">
+                <img src="images/image3.jpg" alt="Machine Tending">
+                <div class="service-content">
+                    <h3>Machine Tending</h3>
+                    <p>Increase productivity and reduce downtime with our intelligent machine tending solutions, capable of managing multiple machines simultaneously.</p>
+                </div>
+            </div>
+            <div class="service-item">
+                <img src="images/pick.jpg" alt="Pick and Place Robot">
+                <div class="service-content">
+                    <h3>Pick and Place</h3>
+                    <p>Our high-speed pick and place robots, guided by advanced AI vision systems, ensure precise object handling and placement.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>Kobot Labs Pvt Ltd is at the forefront of packaging and automation technology. Our team of experts combines years of experience in robotics, artificial intelligence, and packaging industry knowledge to deliver cutting-edge solutions that drive efficiency and innovation.</p>
+        </div>
+    </section>
+
+    <div class="container" id="contact">
+        <h2>Contact Us</h2>
+        <p>Ready to revolutionize your packaging processes? Get in touch with us today!</p>
+        <ul>
+            <li>Email: hello@kobotlabs.com</li>
+            <li>Phone: +91 8547314780, +91 8301033793</li>
+            <li>Address: Chottubhagath Building, Pezhakkappilly P O, Muvattupuzha - 686673</li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Kobot Labs Pvt Ltd. All rights reserved.</p>
+    </footer>
+
+    <a href="#" class="scroll-to-top">↑</a>
+
+    <script>
+        // Navbar color change on scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll to top button visibility
+        window.addEventListener('scroll', function() {
+            const scrollToTop = document.querySelector('.scroll-to-top');
+            if (window.scrollY > 300) {
+                scrollToTop.classList.add('visible');
+            } else {
+                scrollToTop.classList.remove('visible');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
