@@ -1,376 +1,383 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kobot Labs - Human Robot Collaboration Experts</title>
-    <style>
-        :root {
-            --primary-color: #0066cc;
-            --secondary-color: #ffd700;
-            --text-color: #333;
-            --background-color: #f4f4f4;
-        }
-        
-        body {
-            font-family: 'Roboto', 'Arial', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            color: var(--text-color);
-            background-color: var(--background-color);
-        }
-        
-        header {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/image3.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-align: center;
-            padding: 1rem;
-        }
-        
-        header h1 {
-            font-size: 4rem;
-            margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-            animation: fadeInDown 1s ease-out;
-        }
-        
-        header p {
-            font-size: 1.5rem;
-            max-width: 600px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-            animation: fadeInUp 1s ease-out 0.5s;
-            opacity: 0;
-            animation-fill-mode: forwards;
-        }
-        
-        nav {
-            background-color: rgba(51, 51, 51, 0.9);
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            transition: background-color 0.3s ease;
-        }
-        
-        nav.scrolled {
-            background-color: rgba(51, 51, 51, 1);
-        }
-        
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-        }
-        
-        nav ul li {
-            margin: 0 15px;
-        }
-        
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-        
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--secondary-color);
-            transition: width 0.3s ease;
-        }
-        
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-        
-        .container {
-            width: 80%;
-            max-width: 1200px;
-            margin: auto;
-            overflow: hidden;
-            padding: 60px 0;
-        }
-        
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-        
-        .service-item {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .service-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        .service-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-        
-        .service-item:hover img {
-            transform: scale(1.1);
-        }
-        
-        .service-content {
-            padding: 20px;
-        }
-        
-        .service-item h3 {
-            margin-top: 0;
-            color: var(--primary-color);
-            font-size: 1.5rem;
-        }
-        
-        #about {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/image2.jpeg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-        }
-        
-        #about .container {
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 40px;
-            border-radius: 8px;
-            backdrop-filter: blur(10px);
-        }
-        
-        #contact {
-            background-color: #fff;
-            padding: 80px 0;
-        }
-        
-        #contact ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        
-        #contact ul li {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
-        
-        #contact ul li::before {
-            content: '•';
-            color: var(--primary-color);
-            font-size: 1.5em;
-            margin-right: 10px;
-        }
-        
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-        }
-        
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        h2 {
-            text-align: center;
-            color: var(--primary-color);
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-        }
-        
-        p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-        
-        .scroll-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: var(--primary-color);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.5rem;
-            text-decoration: none;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-        
-        .scroll-to-top.visible {
-            opacity: 1;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kobot Security — Purple Team, Vulnerability Audit &amp; Penetration Testing</title>
+<meta name="description" content="Kobot Security: offensive security services — purple team engagements, vulnerability assessment, penetration testing (web, API, network, cloud), detection engineering and adversary emulation.">
+<style>
+:root{
+  --bg:#0a0e1a; --bg2:#0f1628; --panel:#131c33; --panel2:#182442;
+  --line:#1f2c4d; --line2:#2a3a63;
+  --txt:#dbe4ff; --muted:#8fa1c7; --dim:#5f719a;
+  --purple:#8b5cf6; --purple2:#a78bfa; --purpleDark:#6d28d9;
+  --cyan:#22d3ee; --green:#34d399; --amber:#fbbf24; --red:#f87171;
+  --mono:'SF Mono','Cascadia Code',Consolas,'Courier New',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--txt);line-height:1.6;overflow-x:hidden}
+::selection{background:var(--purpleDark);color:#fff}
+a{color:var(--purple2);text-decoration:none}
+h1,h2,h3{font-weight:700;letter-spacing:-.02em}
+h2{font-size:clamp(1.6rem,3.5vw,2.4rem)}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+section{padding:88px 0;border-top:1px solid var(--line)}
+.sec-tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--purple2);border:1px solid var(--line2);border-radius:999px;padding:5px 14px;margin-bottom:18px;background:rgba(139,92,246,.06)}
+.sec-tag::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--purple);box-shadow:0 0 8px var(--purple)}
+.sec-head{max-width:720px;margin-bottom:48px}
+.sec-head p{color:var(--muted);margin-top:12px;font-size:1.02rem}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:50;background:rgba(10,14,26,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.05rem;color:#fff}
+.logo svg{flex:none}
+.logo em{font-style:normal;color:var(--purple2)}
+.nav-links{display:flex;gap:26px;align-items:center}
+.nav-links a{color:var(--muted);font-size:.9rem;font-weight:500;transition:color .15s}
+.nav-links a:hover{color:#fff}
+.nav-cta{background:var(--purple);color:#fff!important;padding:8px 18px;border-radius:8px;font-weight:600;box-shadow:0 0 18px rgba(139,92,246,.35)}
+.nav-cta:hover{background:var(--purpleDark)}
+
+/* HERO */
+header.hero{position:relative;padding:110px 0 90px;overflow:hidden;border-bottom:1px solid var(--line)}
+#grid{position:absolute;inset:0;z-index:-2}
+.hero-glow{position:absolute;z-index:-1;border-radius:50%;filter:blur(90px);opacity:.5}
+.glow-a{width:520px;height:520px;background:#4c1d95;top:-180px;right:-80px}
+.glow-b{width:380px;height:380px;background:#164e63;bottom:-160px;left:-100px}
+.hero-grid2{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.kicker{font-family:var(--mono);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.kicker::before{content:"";width:24px;height:1px;background:var(--cyan)}
+h1{font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.08;margin-bottom:20px}
+h1 .grad{background:linear-gradient(90deg,var(--purple2),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-sub{color:var(--muted);font-size:1.08rem;max-width:560px;margin-bottom:32px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:10px;font-weight:600;font-size:.95rem;transition:all .18s;border:1px solid transparent;cursor:pointer}
+.btn-p{background:var(--purple);color:#fff;box-shadow:0 4px 24px rgba(139,92,246,.4)}
+.btn-p:hover{background:var(--purpleDark);transform:translateY(-1px)}
+.btn-o{border-color:var(--line2);color:var(--txt);background:rgba(255,255,255,.02)}
+.btn-o:hover{border-color:var(--purple);color:#fff}
+.hero-stats{display:flex;gap:34px;flex-wrap:wrap}
+.stat b{font-size:1.5rem;color:#fff;display:block;font-variant-numeric:tabular-nums}
+.stat span{font-size:.78rem;color:var(--dim);text-transform:uppercase;letter-spacing:.08em}
+
+/* TERMINAL */
+.term{background:#0b1120;border:1px solid var(--line2);border-radius:14px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.5),0 0 40px rgba(109,40,217,.12)}
+.term-bar{display:flex;align-items:center;gap:6px;padding:11px 14px;background:#0e1526;border-bottom:1px solid var(--line)}
+.dot{width:11px;height:11px;border-radius:50%}
+.term-title{margin-left:8px;font-family:var(--mono);font-size:.72rem;color:var(--dim)}
+.term-body{padding:18px;font-family:var(--mono);font-size:.78rem;line-height:1.85;color:#a5b4cf;white-space:pre;overflow-x:auto}
+.tp{color:var(--green)}.tc{color:var(--cyan)}.tw{color:var(--amber)}.th{color:var(--dim)}.tm{color:var(--purple2)}
+
+/* FEATURES / PHASES */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:26px;transition:all .2s}
+.card:hover{border-color:var(--line2);transform:translateY(-3px);background:var(--panel2)}
+.card .ic{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(139,92,246,.12);margin-bottom:16px}
+.card h3{font-size:1.05rem;margin-bottom:8px;color:#fff}
+.card p{font-size:.88rem;color:var(--muted)}
+.card ul{list-style:none;margin-top:12px}
+.card ul li{font-size:.8rem;color:var(--dim);padding:3px 0 3px 16px;position:relative}
+.card ul li::before{content:"▸";position:absolute;left:0;color:var(--purple)}
+
+/* PHASES timeline */
+.phase{display:grid;grid-template-columns:120px 1fr;gap:26px;padding:26px 0;border-bottom:1px dashed var(--line)}
+.phase:last-child{border:none}
+.ph-num{font-family:var(--mono);font-size:.8rem;color:var(--purple2);padding-top:3px}
+.ph-num::before{content:"PHASE "}
+.ph-body h3{font-size:1.08rem;color:#fff;margin-bottom:6px}
+.ph-body p{font-size:.9rem;color:var(--muted);max-width:640px}
+.ph-deliv{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.chip{font-family:var(--mono);font-size:.68rem;padding:3px 10px;border-radius:6px;border:1px solid var(--line2);color:var(--cyan);background:rgba(34,211,238,.05)}
+
+/* SERVICES table-ish */
+.svc{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.svc-card{background:linear-gradient(180deg,var(--panel),var(--bg2));border:1px solid var(--line);border-radius:14px;padding:28px;position:relative;overflow:hidden}
+.svc-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--purple),transparent)}
+.svc-card h3{color:#fff;font-size:1.12rem;margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.svc-card p{font-size:.9rem;color:var(--muted);margin-bottom:14px}
+.svc-card .tags{display:flex;flex-wrap:wrap;gap:7px}
+.tag{font-size:.7rem;font-family:var(--mono);padding:3px 9px;border-radius:5px;background:rgba(139,92,246,.1);color:var(--purple2);border:1px solid rgba(139,92,246,.25)}
+
+/* REPORT SAMPLE */
+.report{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.report-bar{padding:14px 20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;background:var(--bg2)}
+.report-bar b{font-size:.9rem}
+.sev-pill{font-family:var(--mono);font-size:.66rem;padding:2px 9px;border-radius:99px;font-weight:700}
+.sev-c{background:rgba(248,113,113,.15);color:var(--red)}.sev-h{background:rgba(251,191,36,.14);color:var(--amber)}.sev-m{background:rgba(34,211,238,.13);color:var(--cyan)}.sev-l{background:rgba(52,211,153,.13);color:var(--green)}
+.finding{padding:16px 20px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:4px 14px;align-items:baseline}
+.finding:last-child{border:none}
+.finding b{font-size:.92rem;color:#fff;font-weight:600}
+.finding span{font-size:.78rem;color:var(--dim)}
+.finding .fx{grid-column:1/-1;font-family:var(--mono);font-size:.72rem;color:var(--green)}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.contact-list{list-style:none;margin-top:18px}
+.contact-list li{display:flex;gap:12px;align-items:center;padding:10px 0;color:var(--muted);font-size:.95rem}
+.contact-list b{color:#fff;font-weight:600;min-width:74px;font-size:.85rem}
+form .row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+label{font-size:.75rem;color:var(--dim);display:block;margin-bottom:5px;text-transform:uppercase;letter-spacing:.06em;font-family:var(--mono)}
+input,select,textarea{width:100%;background:var(--bg2);border:1px solid var(--line2);border-radius:9px;padding:11px 13px;color:var(--txt);font-size:.9rem;font-family:inherit;transition:border .15s}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--purple)}
+textarea{resize:vertical;min-height:90px}
+.form-note{font-size:.72rem;color:var(--dim);margin-top:10px}
+
+footer{border-top:1px solid var(--line);padding:34px 0;color:var(--dim);font-size:.82rem}
+.foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.foot-in a{color:var(--muted)}
+
+@media(max-width:900px){
+  .hero-grid2,.contact-grid,.svc,.grid3{grid-template-columns:1fr}
+  .grid3{grid-template-columns:1fr 1fr}
+  .nav-links a:not(.nav-cta){display:none}
+  .phase{grid-template-columns:1fr;gap:6px}
+  .hero{padding:70px 0 60px}
+}
+@media(max-width:560px){.grid3{grid-template-columns:1fr}form .row{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
-    <header>
-        <h1>Kobot Labs</h1>
-        <p>Revolutionizing Industries - Collaborative Robots with AI Vision</p>
-    </header>
 
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <div class="container" id="home">
-        <h2>Welcome to Kobot Labs</h2>
-        <p>We specialize in collaborative robots (Cobots) with AI vision solutions for the packaging industry, optimizing all automation and secondary packaging processes, machine tending, and pick-and-place operations.</p>
+<nav>
+  <div class="wrap nav-in">
+    <a class="logo" href="#top" aria-label="Kobot Security home">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 2L3.5 5.5V11.2C3.5 16.6 7 20.6 12 22C17 20.6 20.5 16.6 20.5 11.2V5.5L12 2Z" stroke="#8b5cf6" stroke-width="1.7"/><path d="M9 11.8L11.2 14L15.2 9.6" stroke="#22d3ee" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Kobot<em>Security</em>
+    </a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#method">Methodology</a>
+      <a href="#deliverables">Deliverables</a>
+      <a href="#contact" class="nav-cta">Request Audit</a>
     </div>
+  </div>
+</nav>
 
-   <div class="container" id="services">
-    <h2>Our Services</h2>
-    <div class="service-grid">
-        <div class="service-item">
-            <a href="cobots-article.html" target="_blank">
-                <img src="images/image1.jpg" alt="Automation Services">
-                <div class="service-content">
-                    <h3>Automation Services</h3>
-                    <p>Our AI-powered robots excel in precise and efficient tasks ensuring product integrity and optimal presentation.</p>
-                </div>
-            </a>
-        </div>
-        <div class="service-item">
-            <a href="cobots-article.html" target="_blank">
-                <img src="images/imagemain.jpeg" alt="Secondary Packaging">
-                <div class="service-content">
-                    <h3>Secondary Packaging</h3>
-                    <p>Streamline your secondary packaging processes with our advanced robotics systems, designed for speed and accuracy.</p>
-                </div>
-            </a>
-        </div>
-        <div class="service-item">
-            <a href="cobots-article.html" target="_blank">
-                <img src="images/image3.jpg" alt="Machine Tending">
-                <div class="service-content">
-                    <h3>Machine Tending</h3>
-                    <p>Increase productivity and reduce downtime with our intelligent machine tending solutions, capable of managing multiple machines simultaneously.</p>
-                </div>
-            </a>
-        </div>
-        <div class="service-item">
-            <a href="cobots-article.html" target="_blank">
-                <img src="images/pick.jpg" alt="Pick and Place Robot">
-                <div class="service-content">
-                    <h3>Pick and Place</h3>
-                    <p>Our high-speed pick and place robots, guided by advanced AI vision systems, ensure precise object handling and placement.</p>
-                </div>
-            </a>
-        </div>
+<header class="hero" id="top">
+  <canvas id="grid"></canvas><div class="hero-glow glow-a"></div><div class="hero-glow glow-b"></div>
+  <div class="wrap hero-grid2">
+    <div>
+      <div class="kicker">Purple Team · Vulnerability Audit · Penetration Testing</div>
+      <h1>Break it before <span class="grad">they do.</span></h1>
+      <p class="hero-sub">Kobot Security runs offensive-grade assessments and turns every finding into stronger detections — vulnerability audits, pentests, and purple-team programs that close the loop between red and blue.</p>
+      <div class="hero-btns">
+        <a class="btn btn-p" href="#contact">Request a security audit</a>
+        <a class="btn btn-o" href="#method">See our method</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><b>40+</b><span>Checks per audit</span></div>
+        <div class="stat"><b>OWASP</b><span>ASVS / WSTG aligned</span></div>
+        <div class="stat"><b>CVSS 3.1</b><span>Severity scoring</span></div>
+        <div class="stat"><b>7 days</b><span>Typical report SLA</span></div>
+      </div>
     </div>
-</div>
+    <div class="term" aria-hidden="true">
+      <div class="term-bar">
+        <span class="dot" style="background:#ff5f57"></span><span class="dot" style="background:#febc2e"></span><span class="dot" style="background:#28c840"></span>
+        <span class="term-title">kobot@audit:~/recon</span>
+      </div>
+      <div class="term-body"><span class="th">$</span> <span class="tc">kobot-audit</span> --target client-app --full
 
-
-    <section id="about">
-        <div class="container">
-            <h2>Why Us</h2>
-            <p>At Kobot Labs we are revolutionizing the packaging industry with our AI vision based collaborative robots, only Indian Cobot model with integrated vision systems. </p>
-        </div>
-    </section>
-
-    <div class="container" id="contact">
-        <h2>Contact Us</h2>
-        <p>Ready to revolutionize your packaging processes? Get in touch with us today!</p>
-        <ul>
-            <li>Email: fazal@kobotlabs.com , eugin@kobotlabs.com </li>
-            <li>Phone: +91 8547314780, +91 8301033793</li>
-            <li>Address: Chottubhagath Building, Pezhakkappilly P O, Muvattupuzha - 686673</li>
-        </ul>
+<span class="th">[*]</span> Recon          dns · tls · headers · js secrets
+<span class="th">[*]</span> Auth           session · JWT · MFA · reset flows
+<span class="th">[*]</span> Injection      SQLi · XSS · SSRF · IDOR · SSTI
+<span class="th">[*]</span> Cloud          buckets · IAM · public snapshots
+<span class="tp">[✓]</span> 3 critical · 4 high · 7 medium fixed
+<span class="tm">→</span> detections shipped to SIEM
+<span class="tw">→</span> retest scheduled in 14 days<span class="blink">▊</span></div>
     </div>
+  </div>
+</header>
 
-    <footer>
-        <p>&copy; 2024 Kobot Labs Pvt Ltd. All rights reserved.</p>
-    </footer>
 
-    <a href="#" class="scroll-to-top">↑</a>
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag">Services</span>
+      <h2>Offensive security, engineered</h2>
+      <p>Every engagement is scoped to your stack, executed against OWASP, PTES and MITRE ATT&amp;CK, and delivered with fixes your engineers can apply the same day.</p>
+    </div>
+    <div class="svc">
+      <div class="svc-card">
+        <h3>🛡 Vulnerability Audit</h3>
+        <p>Full-stack assessment of external and internal surface — misconfigurations, patch gaps, TLS hygiene, exposed services and secrets, mapped to CVSS with a prioritized remediation plan.</p>
+        <div class="tags"><span class="tag">CVSS 3.1</span><span class="tag">CIS Benchmarks</span><span class="tag">Asset inventory</span><span class="tag">Patch roadmap</span></div>
+      </div>
+      <div class="svc-card">
+        <h3>⚔ Penetration Testing</h3>
+        <p>Goal-driven exploitation of web apps, APIs, mobile and network tiers. We chain real attacker paths to prove impact — not just list vulnerabilities from a scanner.</p>
+        <div class="tags"><span class="tag">OWASP WSTG</span><span class="tag">PTES</span><span class="tag">Web & API</span><span class="tag">Internal/AD</span><span class="tag">Mobile</span></div>
+      </div>
+      <div class="svc-card">
+        <h3>🟣 Purple Team Program</h3>
+        <p>Red attacks run in lockstep with your defenders. Each technique from MITRE ATT&amp;CK is executed, observed, and tuned into detections — measured, not guessed.</p>
+        <div class="tags"><span class="tag">MITRE ATT&amp;CK</span><span class="tag">Detection tuning</span><span class="tag">Purple playbooks</span><span class="tag">Metrics</span></div>
+      </div>
+      <div class="svc-card">
+        <h3>☁ Cloud &amp; Config Review</h3>
+        <p>AWS / Azure / GCP identity, network and storage review — public exposure, privilege paths, logging gaps — with Terraform-level fixes.</p>
+        <div class="tags"><span class="tag">IAM paths</span><span class="tag">Public exposure</span><span class="tag">Logging gaps</span><span class="tag">IaC fixes</span></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script>
-        // Navbar color change on scroll
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 100) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
+<section id="method" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag">Methodology</span>
+      <h2>Four phases. No black boxes.</h2>
+      <p>A transparent loop from reconnaissance to verified retest — you see progress, artifacts and detections at every phase.</p>
+    </div>
+    <div>
+      <div class="phase">
+        <div class="ph-num">01 / Recon</div>
+        <div class="ph-body">
+          <h3>Scoping &amp; Reconnaissance</h3>
+          <p>Asset discovery, attack-surface mapping, threat-model workshop. We agree targets, credentials and rules of engagement before a packet is sent.</p>
+          <div class="ph-deliv"><span class="chip">Asset map</span><span class="chip">Threat model</span><span class="chip">RoE doc</span></div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="ph-num">02 / Assess</div>
+        <div class="ph-body">
+          <h3>Vulnerability Assessment</h3>
+          <p>Authenticated scan plus manual verification — every finding is reproduced by hand, deduplicated and rated for exploitability and business impact.</p>
+          <div class="ph-deliv"><span class="chip">Verified findings</span><span class="chip">CVSS scores</span><span class="chip">Exploit notes</span></div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="ph-num">03 / Exploit</div>
+        <div class="ph-body">
+          <h3>Exploitation &amp; Purple Validation</h3>
+          <p>Chained proof-of-concept attacks against agreed objectives, mirrored with your SOC to confirm each detection fires and tune it where it doesn't.</p>
+          <div class="ph-deliv"><span class="chip">PoCs</span><span class="chip">Attack path map</span><span class="chip">Detection gaps</span></div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="ph-num">04 / Report</div>
+        <div class="ph-body">
+          <h3>Reporting, Fixes &amp; Retest</h3>
+          <p>Executive summary, technical detail with screenshots and PoCs, fix guidance, and a free retest of criticals within 30 days.</p>
+          <div class="ph-deliv"><span class="chip">Exec brief</span><span class="chip">Tech report</span><span class="chip">Fix plan</span><span class="chip">Free retest</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        // Scroll to top button visibility
-        window.addEventListener('scroll', function() {
-            const scrollToTop = document.querySelector('.scroll-to-top');
-            if (window.scrollY > 300) {
-                scrollToTop.classList.add('visible');
-            } else {
-                scrollToTop.classList.remove('visible');
-            }
-        });
+<section id="deliverables">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag">Deliverables</span>
+      <h2>What you actually receive</h2>
+      <p>A sample of a Kobot audit report — severity-rated, reproducible, and written for both engineers and the board.</p>
+    </div>
+    <div class="grid3">
+      <div class="report" style="grid-column:span 2">
+        <div class="report-bar"><b>Findings — ACME Corp external audit</b><span style="font-family:var(--mono);font-size:.7rem;color:var(--dim)">kobot-security · 2026</span></div>
+        <div class="finding"><b>SQL injection in order lookup API</b><span class="sev-pill sev-c">CRIT 8.9</span><span>Unparameterized query in /api/v2/orders — dumpable via time-based blind.</span><span class="fx">fix → prepared statements + input allowlist</span></div>
+        <div class="finding"><b>JWT accepted with algorithm=none</b><span class="sev-pill sev-h">HIGH 7.4</span><span>Token forge possible; auth bypass on admin routes.</span><span class="fx">fix → pin RS256, validate iss/aud/exp</span></div>
+        <div class="finding"><b>S3 bucket world-readable</b><span class="sev-pill sev-m">MED 5.3</span><span>Backup archive with PII publicly listable.</span><span class="fx">fix → bucket policy + block public access</span></div>
+        <div class="finding"><b>Missing CSP / clickjacking headers</b><span class="sev-pill sev-l">LOW 3.1</span><span>UI redress risk on payment step.</span><span class="fx">fix → frame-ancestors + CSP baseline</span></div>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom:18px">
+          <div class="ic">📄</div><h3>Executive report</h3>
+          <p>Board-ready PDF: risk posture, top risks, remediation roadmap and budget-relevant priorities.</p>
+        </div>
+        <div class="card" style="margin-bottom:18px">
+          <div class="ic">🔧</div><h3>Technical annex</h3>
+          <p>Per-finding reproduction steps, evidence, affected endpoints, and copy-paste fixes.</p>
+        </div>
+        <div class="card">
+          <div class="ic">📈</div><h3>Detection pack</h3>
+          <p>Purple-team bonus: SIEM rules + ATT&amp;CK mapping so the same attack is caught next time.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
+<section id="why" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-tag">Why Kobot</span><h2>Attackers think in chains. So do we.</h2></div>
+    <div class="grid3">
+      <div class="card"><div class="ic">🎯</div><h3>Impact-first</h3><p>We report what an attacker can actually do with a finding — revenue, data, uptime — not raw scanner output.</p></div>
+      <div class="card"><div class="ic">🤝</div><h3>Engineer-friendly</h3><p>Fixes come as diffs and configs, not paragraphs. Your team ships them without a meeting.</p></div>
+      <div class="card"><div class="ic">🔁</div><h3>Retest included</h3><p>Criticals and highs are retested free within 30 days. Closure is verified, not assumed.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <span class="sec-tag">Contact</span>
+      <h2>Request an audit or pentest</h2>
+      <p style="color:var(--muted);margin-top:12px">Tell us your stack and timeline — we reply within one business day with scope and a fixed quote.</p>
+      <ul class="contact-list">
+        <li>✉ <b>Email</b> fazal@kobotlabs.com</li>
+        <li>📞 <b>Phone</b> +91 85473 14780</li>
+        <li>📍 <b>Office</b> Chottubhagath Building, Pezhakkappilly P O, Muvattupuzha 686673, Kerala</li>
+        <li>⏱ <b>SLA</b> Reply &lt; 1 business day · Report &lt; 7 days after test window</li>
+      </ul>
+    </div>
+    <form id="cform" novalidate>
+      <div class="row">
+        <div><label for="fn">Name</label><input id="fn" required placeholder="Jane Co"></div>
+        <div><label for="fe">Work email</label><input id="fe" type="email" required placeholder="jane@company.com"></div>
+      </div>
+      <div class="row">
+        <div><label for="fs">Service</label>
+          <select id="fs">
+            <option>Vulnerability audit</option><option>Penetration test</option><option>Purple team program</option><option>Cloud review</option><option>Not sure — advise me</option>
+          </select></div>
+        <div><label for="fw">Window</label><select id="fw"><option>ASAP</option><option>Within a month</option><option>This quarter</option><option>Exploring</option></select></div>
+      </div>
+      <div style="margin-bottom:16px"><label for="fm">Anything specific?</label><textarea id="fm" placeholder="Stack, compliance driver, past incident…"></textarea></div>
+      <button class="btn btn-p" type="submit" style="width:100%;justify-content:center">Send request →</button>
+      <p class="form-note">Opens your mail client with the request pre-filled — no data leaves this page.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>© 2026 Kobot Security · kobotlabs.com</span>
+    <span><a href="https://github.com/fazalbasheer/Kobot">GitHub</a> · OWASP · PTES · MITRE ATT&amp;CK</span>
+  </div>
+</footer>
+
+<script>
+// terminal cursor blink
+const blink=document.querySelector('.blink');
+if(blink)setInterval(()=>blink.style.opacity=blink.style.opacity==='0'?'1':'0',600);
+
+// hero grid canvas — subtle animated node mesh
+const cv=document.getElementById('grid');const cx=cv.getContext('2d');let pts=[],W,H;
+function rs(){W=cv.width=innerWidth;H=cv.height=cv.closest('header').offsetHeight;
+ pts=Array.from({length:Math.min(46,~~(W*H/22000))},()=>({x:Math.random()*W,y:Math.random()*H,vx:.18+.3*Math.random()-.2,vy:.18+.3*Math.random()-.2}));}
+rs();addEventListener('resize',rs);
+(function loop(){
+ cx.clearRect(0,0,W,H);
+ pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;});
+ for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
+   const a=pts[i],b=pts[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.hypot(dx,dy);
+   if(d<130){cx.strokeStyle=`rgba(139,92,246,${.16*(1-d/130)})`;cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(b.x,b.y);cx.stroke();}}
+ pts.forEach(p=>{cx.fillStyle='rgba(167,139,250,.55)';cx.beginPath();cx.arc(p.x,p.y,1.3,0,7);cx.fill();});
+ requestAnimationFrame(loop)})();
+
+// contact form → mailto handoff
+document.getElementById('cform').addEventListener('submit',e=>{
+ e.preventDefault();
+ const g=id=>document.getElementById(id).value.trim();
+ if(!g('fn')||!g('fe')||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(g('fe'))){alert('Please add your name and a valid work email.');return;}
+ const body=encodeURIComponent(`Name: ${g('fn')}\nEmail: ${g('fe')}\nService: ${g('fs')}\nWindow: ${g('fw')}\n\n${g('fm')}`);
+ location.href=`mailto:fazal@kobotlabs.com?subject=${encodeURIComponent('Security audit request — '+g('fs'))}&body=${body}`;
+});
+</script>
 </body>
 </html>
